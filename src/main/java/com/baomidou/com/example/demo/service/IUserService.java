@@ -1,6 +1,6 @@
 package com.baomidou.com.example.demo.service;
 
-import com.baomidou.com.example.demo.entity.Logs;
+import com.baomidou.com.example.demo.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author zhangjie
- * @since 2020-01-19
+ * @since 2020-03-29
  */
-public interface ILogsService extends IService<Logs> {
+public interface IUserService extends IService<User> {
 
 }

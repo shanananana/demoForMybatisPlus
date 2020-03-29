@@ -1,6 +1,6 @@
 package com.baomidou.com.example.demo.mapper;
 
-import com.baomidou.com.example.demo.entity.Logs;
+import com.baomidou.com.example.demo.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author zhangjie
- * @since 2020-01-19
+ * @since 2020-03-29
  */
-public interface LogsMapper extends BaseMapper<Logs> {
+public interface UserMapper extends BaseMapper<User> {
 
 }
