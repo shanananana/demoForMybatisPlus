@@ -6,10 +6,9 @@ spring:
     password: snnnn1998
 
 mybatis-plus:
-  typeEnumsPackage: com.chen.mybatisplus.mybatisplus.entity
+  typeEnumsPackage: com.baomidou.com.example.demo.entity
   global-config:
     db-config:
       logic-delete-value: 1
       logic-not-delete-value: 0
-server:
-  port: 8081
+
