@@ -5,11 +5,10 @@ import lombok.Data;
  *返回结果封装
  */
 
-@Data
 public class Result<T> {
     private Integer code;
     private String message;
-    private T Data;
+    private T data;
 
     /**
      * 无参的成功响应
@@ -18,7 +17,7 @@ public class Result<T> {
         Result result=new Result();
         result.code=ResponseCode.Code.SUCCESS;
         result.message=ResponseCode.Message.SUCCESS;
-        result.setData(null);
+        result.data=null;
         return result;
     }
 
@@ -29,7 +28,7 @@ public class Result<T> {
         Result result=new Result();
         result.code=ResponseCode.Code.SUCCESS;
         result.message=ResponseCode.Message.SUCCESS;
-        result.setData(t);
+        result.data=t;
         return result;
     }
 
@@ -40,7 +39,7 @@ public class Result<T> {
         Result result=new Result();
         result.code=ResponseCode.Code.REQ_FAIL;
         result.message=ResponseCode.Message.REQ_FAIL;
-        result.setData(null);
+        result.data=null;
         return result;
     }
 
@@ -51,7 +50,7 @@ public class Result<T> {
         Result result=new Result();
         result.code=code;
         result.message=ResponseCode.Message.REQ_FAIL;
-        result.setData(null);
+        result.data=null;
         return result;
     }
 
@@ -62,7 +61,7 @@ public class Result<T> {
         Result result=new Result();
         result.code=ResponseCode.Code.SERVER_ERROR;
         result.message=message;
-        result.setData(null);
+        result.data=null;
         return result;
     }
 
@@ -73,7 +72,7 @@ public class Result<T> {
         Result result=new Result();
         result.code=code;
         result.message=message;
-        result.setData(null);
+        result.data=null;
         return result;
     }
 
