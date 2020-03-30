@@ -31,7 +31,7 @@ public class SwaggerConfig {
                 .title("Springboot:swagger2集成用法")//标题
                 .description("这是一个swagger2 Demo")//简介声明
                 .version("1.0")//版本号
-                .contact("kevinCow")//作者
+                .contact("zhangjie")//作者
                 .build();
     }
 }
