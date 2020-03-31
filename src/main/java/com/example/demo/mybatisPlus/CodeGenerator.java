@@ -60,7 +60,9 @@ public class CodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("模块名"));
+//        String moudleName=scanner("模块名");
+//        pc.setModuleName(moudleName);
+        pc.setModuleName("com.example.demo");
  //       pc.setParent("com.baomidou.ant");
         mpg.setPackageInfo(pc);
 
