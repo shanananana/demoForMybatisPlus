@@ -1,5 +1,7 @@
 package com.baomidou.com.example.demo.util;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigInteger;
@@ -11,6 +13,8 @@ import java.security.NoSuchAlgorithmException;
  */
 @Slf4j
 public class Constant {
+
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     /**
      * MD5工具方法
@@ -24,5 +28,14 @@ public class Constant {
         }
         md.update(str.getBytes());
         return new BigInteger(1, md.digest()).toString(16);
+    }
+
+    //将任何对象转为String
+    public static <T> String convert2String(T object) {
+        try {
+            return mapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("convert object to json failed");
+        }
     }
 }

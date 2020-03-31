@@ -1,5 +1,6 @@
 package com.baomidou.com.example.demo.exception.handler;
 
+import com.baomidou.com.example.demo.util.Constant;
 import com.baomidou.com.example.demo.util.responseUtil.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public Result exception(Exception e,CommonError commonError){
-        log.error(" "+e);
+        log.error("error msg"+commonError.getErrorMsg());
         return Result.fail(commonError.getErrorCode(),commonError.getErrorMsg());
     }
 }
