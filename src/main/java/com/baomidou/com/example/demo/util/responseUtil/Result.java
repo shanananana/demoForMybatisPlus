@@ -1,10 +1,13 @@
 package com.baomidou.com.example.demo.util.responseUtil;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
+
 /**
  *返回结果封装
  */
-
+@Data
+@Accessors(chain = true)
 public class Result<T> {
     private Integer code;
     private String message;
