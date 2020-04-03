@@ -10,12 +10,15 @@ import com.baomidou.com.example.demo.util.Constant;
 import com.baomidou.com.example.demo.util.responseUtil.Result;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.lang.model.element.Name;
 
 /**
  * <p>
@@ -50,11 +53,9 @@ public class UserController {
     @GetMapping("getUserById")
     @ApiOperation("根据id查询用户")
     public Result<User> getUserById(@RequestParam Long id) {
-        if (true) {
-            throw new BusinessException(EmBusinessError.ERROR_ONE,"错误嘻嘻");
-        }
-        User user = iUserService.getById(id);
-        return Result.success(user);
+        User user =new User().setId(id);
+        User resp=user.selectById(user);
+        return Result.success(resp);
     }
 
     @GetMapping("getUserList")
@@ -65,7 +66,9 @@ public class UserController {
                               @RequestParam(value = "pageSize") Integer pageSize
     ) {
         LambdaQueryWrapper<User> lambdaQuery = Wrappers.<User>lambdaQuery();
-        lambdaQuery.eq(User::getNames, names).eq(User::getSex, sex);
+        lambdaQuery
+                .eq(StringUtils.isNotBlank(names), User::getNames, names)
+                .eq(sex!=null, User::getSex, sex);
         IPage<User> userIPage = new Page<>(page, pageSize);
         IPage page1 = iUserService.page(userIPage, lambdaQuery);
         return Result.success(page1);

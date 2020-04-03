@@ -1,5 +1,8 @@
 package com.baomidou.com.example.demo.util;
 
+import com.baomidou.com.example.demo.entity.User;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +18,8 @@ import java.security.NoSuchAlgorithmException;
 public class Constant {
 
     private static final ObjectMapper mapper = new ObjectMapper();
+
+    public static final IPage<User> defaultPage=new Page<>(1,5);
 
     /**
      * MD5工具方法
