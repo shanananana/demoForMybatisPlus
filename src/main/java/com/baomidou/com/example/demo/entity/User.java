@@ -23,7 +23,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @ApiModel(value="User对象", description="")
-public class User  extends Model<User> implements Serializable{
+public class User  extends Model<User>{
 
     private static final long serialVersionUID = 1L;
 

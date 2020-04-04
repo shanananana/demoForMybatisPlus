@@ -15,7 +15,9 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.lang.model.element.Name;
@@ -39,6 +41,11 @@ public class UserController {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    SqlSession sqlSession;
+
+    @Autowired
+    RedisTemplate redisTemplate;
     @PostMapping("saveUser")
     @ApiOperation("新增用户")
     public Result<Boolean> save(@RequestBody User user) {
@@ -73,4 +80,5 @@ public class UserController {
         IPage page1 = iUserService.page(userIPage, lambdaQuery);
         return Result.success(page1);
     }
+
 }

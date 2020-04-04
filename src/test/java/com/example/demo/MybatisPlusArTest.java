@@ -15,15 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
-
+/**
+ * 演示mybatisPlus AR模式相关功能
+ * */
 @SpringBootTest(classes = DemoApplication.class)
-class DemoApplicationTests {
-
-    @Autowired
-    UserMapper userMapper;
-
-    @Autowired
-    IUserService iUserService;
+class MybatisPlusArTest {
 
     @Test
     void contextLoads() {
@@ -37,7 +33,6 @@ class DemoApplicationTests {
         System.out.println("查询全部user结果打印");
         userList.forEach(o-> System.out.println(o.toString()));
 
-        //条件构造器 查询所有名为lisi并且id>=3的人
         LambdaQueryWrapper<User> lambdaQueryWrapper= Wrappers.<User>lambdaQuery();
         lambdaQueryWrapper.eq(User::getNames,"lisi").ge(User::getId,5);
         IPage<User> userIPage = user.selectPage(Constant.defaultPage, lambdaQueryWrapper);
