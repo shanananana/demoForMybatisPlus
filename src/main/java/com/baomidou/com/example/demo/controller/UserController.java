@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.helper.exceptionhelper.BusinessException;
 import com.helper.exceptionhelper.EmBusinessError;
+import com.helper.redishelper.RedisHelper;
 import com.helper.responsehelper.BaseResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -38,8 +39,8 @@ public class UserController {
     @Autowired
     UserMapper userMapper;
 
-//    @Autowired
-//    RedisHelper redisHelper;
+    @Autowired
+    RedisHelper redisHelper;
 
     @Autowired
     RedisTemplate redisTemplate;
@@ -59,6 +60,7 @@ public class UserController {
     public BaseResponse getUserById(@RequestParam Long id) {
         User user =new User().setId(id);
         User resp=user.selectById(user);
+        redisHelper.setModel(String.valueOf(id),user);
         return BaseResponse.success(resp);
     }
 

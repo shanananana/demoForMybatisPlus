@@ -3,6 +3,7 @@ package com.example.demo;
 import com.baomidou.com.example.demo.DemoApplication;
 import com.baomidou.com.example.demo.entity.vo.TestEntiy;
 import com.baomidou.com.example.demo.entity.User;
+import com.helper.redishelper.RedisHelper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,15 +14,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class RedisUtilTest {
 
     @Autowired
-    RedisUtil redisUtil;
+    RedisHelper redisHelper;
 
     /**
      *普通的get set
      * */
     @Test
     void test1(){
-        redisUtil.setString("key1",10);
-        System.out.println("redis result:    "+redisUtil.getString("key1"));
+        redisHelper.setString("key1",10);
+        System.out.println("redis result:    "+redisHelper.getString("key1"));
     }
 
     /**
@@ -29,20 +30,20 @@ public class RedisUtilTest {
      * */
     @Test
     void test2() throws InterruptedException {
-        redisUtil.setStringWithExpiredSeconds("key2",15,5L);
-        System.out.println("redis result:   "+redisUtil.getString("key2"));
+        redisHelper.setStringWithExpiredSeconds("key2",15,5L);
+        System.out.println("redis result:   "+redisHelper.getString("key2"));
         Thread.sleep(3000);
-        System.out.println("redis result:   "+redisUtil.getString("key2"));
+        System.out.println("redis result:   "+redisHelper.getString("key2"));
         Thread.sleep(2000);
-        System.out.println("redis result:   "+redisUtil.getString("key2"));
+        System.out.println("redis result:   "+redisHelper.getString("key2"));
     }
 
     @Test
     void test3(){
         User user=new User();
         user.setId(10L).setAccount("账号").setPassword("密码123456").setNames("姓名").setSex(1);
-        redisUtil.setModel("user",user);
-        User user2= (User) redisUtil.getModel("user",User.class);
+        redisHelper.setModel("user",user);
+        User user2= (User) redisHelper.getModel("user",User.class);
         System.out.println(user2.toString());
     }
 
@@ -54,8 +55,8 @@ public class RedisUtilTest {
         TestEntiy testEntiy=new TestEntiy()
                 .setAccount("123")
                 .setPassword("456");
-        redisUtil.setModel("entity",testEntiy);
-        TestEntiy result= (TestEntiy) redisUtil.getModel("entity",TestEntiy.class);
+        redisHelper.setModel("entity",testEntiy);
+        TestEntiy result= (TestEntiy) redisHelper.getModel("entity",TestEntiy.class);
         System.out.println(result.toString());
     }
 }

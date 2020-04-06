@@ -14,6 +14,7 @@ md5工具
 
 后续会增加异常，缓存工具类等通用小功能，并考虑拆分工具单独出来使用
 
+
 看的时候可以直接看commit历史，对应注释看diff 基本上就是集成该功能的全部代码了
 
 
@@ -30,3 +31,14 @@ md5工具
 2020/4/4
 
 新增redis工具类 可直接存储对象，并且对象无需序列化
+
+2020/4/6
+已经抽出常用工具，并发布到maven公服，导入以下依赖即可使用
+    
+    <groupId>com.github.shanananana</groupId>
+    <artifactId>projectHelper</artifactId>
+    <version>2.1</version>
+    
+    
+
+
