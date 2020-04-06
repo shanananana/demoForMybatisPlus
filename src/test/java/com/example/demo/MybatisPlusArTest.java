@@ -28,17 +28,17 @@ class MybatisPlusArTest {
     @Test
     void mybatisPlusARForSelect() {
         User user = new User();
-        user.setId(10L);
         List<User> userList = user.selectAll();
         System.out.println("查询全部user结果打印");
         userList.forEach(o-> System.out.println(o.toString()));
-
         LambdaQueryWrapper<User> lambdaQueryWrapper= Wrappers.<User>lambdaQuery();
         lambdaQueryWrapper.eq(User::getNames,"lisi").ge(User::getId,5);
         IPage<User> userIPage = user.selectPage(Constant.defaultPage, lambdaQueryWrapper);
         System.out.println("查询分页user结果打印");
         userIPage.getRecords().forEach(o-> System.out.println(o.toString()));
+        user.setId(10L);
         User userResp = user.selectById(user);
+        System.out.println("查询单个user");
         System.out.println(userResp.toString());
     }
 

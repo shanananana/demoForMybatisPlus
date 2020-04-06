@@ -3,7 +3,6 @@ package com.example.demo;
 import com.baomidou.com.example.demo.DemoApplication;
 import com.baomidou.com.example.demo.entity.vo.TestEntiy;
 import com.baomidou.com.example.demo.entity.User;
-import com.baomidou.com.example.demo.util.RedisUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

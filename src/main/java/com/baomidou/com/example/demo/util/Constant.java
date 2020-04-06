@@ -1,12 +1,12 @@
 package com.baomidou.com.example.demo.util;
 
 import com.baomidou.com.example.demo.entity.User;
-import com.baomidou.com.example.demo.enums.EmBusinessError;
-import com.baomidou.com.example.demo.exception.BusinessException;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.helper.exceptionhelper.BusinessException;
+import com.helper.exceptionhelper.EmBusinessError;
 import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Field;
