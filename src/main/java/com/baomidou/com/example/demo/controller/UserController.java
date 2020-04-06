@@ -17,7 +17,6 @@ import com.helper.responsehelper.BaseResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -42,8 +41,6 @@ public class UserController {
     @Autowired
     RedisHelper redisHelper;
 
-    @Autowired
-    RedisTemplate redisTemplate;
     @PostMapping("saveUser")
     @ApiOperation("新增用户")
     public BaseResponse save(@RequestBody User user) {
@@ -60,7 +57,8 @@ public class UserController {
     public BaseResponse getUserById(@RequestParam Long id) {
         User user =new User().setId(id);
         User resp=user.selectById(user);
-        redisHelper.setModel(String.valueOf(id),user);
+        redisHelper.setModel("11",resp);
+        User user1= (User) redisHelper.getModel("11",User.class);
         return BaseResponse.success(resp);
     }
 
