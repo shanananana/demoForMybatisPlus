@@ -4,6 +4,7 @@ import com.baomidou.com.example.demo.DemoApplication;
 import com.baomidou.com.example.demo.entity.vo.TestEntiy;
 import com.baomidou.com.example.demo.entity.User;
 import com.helper.redishelper.RedisHelper;
+import org.aspectj.lang.annotation.Aspect;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +14,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(classes = DemoApplication.class)
 public class RedisUtilTest {
 
-    RedisHelper redisHelper=RedisHelper.getInstance();
+    @Autowired
+    RedisHelper redisHelper;
 
     /**
      *普通的get set

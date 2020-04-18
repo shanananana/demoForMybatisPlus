@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @MapperScan({"com.baomidou.mybatisplus.samples.quickstart.mapper","com.baomidou.com.example.demo.mapper"})
-@ComponentScan({"com.helper.redishelper","com.baomidou.com.example.demo"})
+@ComponentScan({"com.helper.*","com.helper.permissionhelper.*","com.baomidou.com.example.demo"})
 @EnableSwagger2
 public class DemoApplication {
 

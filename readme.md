@@ -37,7 +37,10 @@ md5工具
     
     <groupId>com.github.shanananana</groupId>
     <artifactId>projectHelper</artifactId>
-    <version>2.2.3</version>
+    <version>2.2.9</version>
+2020/4/18
+使用projectHelper依赖完成基于redis的分布式锁的实现
+    
     
     
 
